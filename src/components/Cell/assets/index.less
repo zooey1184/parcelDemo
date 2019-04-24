@@ -1,0 +1,49 @@
+
+.pre (@style, @value){
+  -webkit-@{style}: @value;
+     -moz-@{style}: @value;
+      -ms-@{style}: @value;
+       -o-@{style}: @value;
+          @{style}: @value;
+}
+.v-center {
+  top: 50%;
+  .pre(transform, translateY(-50%))
+}
+// 动效下划线
+.underline_slide(@color: #00adb5, @height: 2px) {
+  position: relative;
+  &::after {
+    content: "";
+    width: 0;
+    height: @height;
+    background-color: @color;
+    position: absolute;
+    left: 100%;
+    bottom: 1px;
+    transition: all .4s;
+  }
+  &:hover {
+    color: @color;
+    &::after {
+      width: 100%;
+      left: 0;
+      transition-delay: 0.1s;
+    }
+  }
+}
+/* 下划线 */
+.underlineF {
+  position: relative;
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    right: 0;
+    background: #ededed;
+    .pre(transform, scaleY(0.7));
+    .pre(transform-origin, 0 0);
+  }
+}

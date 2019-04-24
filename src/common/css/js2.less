@@ -1,0 +1,36 @@
+// 兼容前缀
+.pre (@style, @value){
+  -webkit-@{style}: @value;
+     -moz-@{style}: @value;
+      -ms-@{style}: @value;
+       -o-@{style}: @value;
+          @{style}: @value;
+}
+
+// 兼容动画
+.keyframes (@name, @frames) {
+  @-webkit-keyframes @name { @frames(); }
+  @-moz-keyframes @name { @frames(); }
+  @-ms-keyframes @name { @frames();}
+  @-o-keyframes @name { @frames(); }
+  @keyframes @name { @frames(); }
+}
+
+// 兼容过渡色 (属性， 角度：90deg, 颜色1， 颜色2)
+.gradient (@val, @deg, @color1: #ff7458, @color2: #f72f53) {
+  @{val}: @color1;
+  @{val}: -webkit-linear-gradient(@deg, @color1 , @color2);
+  @{val}: -o-linear-gradient(@deg, @color1, @color2);
+  @{val}: -moz-linear-gradient(@deg, @color1, @color2);
+  @{val}: linear-gradient(@deg, @color1, @color2);
+}
+
+// 禁止选中
+.noSelect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -khtml-user-select: none; /* Konqueror */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currentlynot supported by any browser */
+}

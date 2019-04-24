@@ -1,0 +1,84 @@
+@color_w: #fff;
+@color_t: rgba(0,0,0,0);
+@bg: #3574FA;    // 主题色
+@btn_c: #3574FA;
+@low_c: #E5E5E5;
+@dis: #EBEBEB;
+@font_c: #2C3946;
+@font_low_c: #76849A;
+@font_dis: #A0ACC1;
+.btn_radius(@r: 4px) {
+  border-radius: @r
+}
+.gradient(@val, @left: #ff7458, @right: #f72f53) {
+  @{val}: @left;
+  @{val}: -webkit-linear-gradient(left, @left , @right);
+  @{val}: -o-linear-gradient(right, @left, @right);
+  @{val}: -moz-linear-gradient(right, @left, @right);
+  @{val}: linear-gradient(to right, @left, @right);
+}
+.btn {
+  outline: none;
+  padding: 0;
+  margin: 0;
+  border: none;
+  .btn_radius;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+// 主题按钮 红色背景 白色文字  按下相反
+.act_btn {
+  .gradient(background, #1FD9DC, #4F8DEE);
+  color: @color_w;
+  &:active {
+    color: @btn_c;
+    background: @color_w
+  }
+}
+// 置灰按钮
+.dis_btn {
+  background: @dis;
+  color: @font_dis;
+  border: 1px solid @dis
+}
+// 主题按钮空心
+.empty_btn {
+  background: @color_w;
+  color: @btn_c;
+  &:active {
+    color: @color_w;
+    background: @btn_c
+  }
+}
+// 落地页成功按钮   绿色文字 按下绿色背景
+.res_btn {
+  color: #14b25a;
+  border: 1px solid #14b25a;
+  background: @color_w;
+  &:active {
+    background: #14b25a;
+    color: @color_w
+  }
+}
+
+.footer_btn {
+  margin: 0 auto;
+  bottom: 34px;
+  font-size: 18px;
+  height: 43px;
+  color: #fff;
+  outline: none;
+  border-radius: 30px;
+  border: none;
+  box-sizing: border-box;
+  background: -webkit-linear-gradient(left, #1FD9DC , #4F8DEE);
+  background: -o-linear-gradient(right, #1FD9DC  , #4F8DEE);
+  background: -moz-linear-gradient(right, #1FD9DC , #4F8DEE);
+  background: linear-gradient(to right, #1FD9DC , #4F8DEE);
+  &:active {
+    opacity: 0.8
+  }
+}

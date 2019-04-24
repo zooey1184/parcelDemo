@@ -1,0 +1,65 @@
+.text{overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;}
+.pre(@style,@value){
+    -webkit-@{style}: @value;
+    -ms-@{style}: @value;
+            @{style}: @value;
+}
+.animation(@value){
+    .pre(animation,@value);
+}
+.transition(@arg){
+    .pre(transition,@arg);
+}
+.transform(@arg){
+    .pre(transform,@arg);
+}
+.opacity(@opacity) {
+    @opacityPercentage: @opacity * 100;
+    opacity: @opacity;
+    filter: ~"alpha(opacity = (@{opacityPercentage}))";
+}
+.icon(@icon){
+	background-image:url("//r.51gjj.com/image/static/@{icon}");
+	background-position: center;
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+.img(@icon){
+    background-image:url("//r.51gjj.com/image/static/@{icon}");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.border-box(){
+    box-sizing: border-box;
+}
+
+.center-x(){
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.center-y(){
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.center-all(){
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.bg-set(){
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.center(){
+    align-items: center ;align-content:center;justify-content:center;
+}
+
+.flex-row(){
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
